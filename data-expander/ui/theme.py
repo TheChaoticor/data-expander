@@ -1,7 +1,8 @@
 import streamlit as st
+import textwrap
 
 def apply_wonder_theme():
-    st.markdown("""
+    css = textwrap.dedent("""
         <style>
         /* IMPORT FONTS */
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
@@ -153,10 +154,11 @@ def apply_wonder_theme():
             border: 1px solid rgba(255,255,255,0.1);
         }
         </style>
-    """, unsafe_allow_html=True)
+    """)
+    st.markdown(css, unsafe_allow_html=True)
 
 def show_hero_header():
-    st.markdown("""
+    html = textwrap.dedent("""
         <div style="text-align: center; padding: 40px 0; margin-bottom: 20px;">
             <h1 style="font-size: 3.5rem; margin-bottom: 10px; background: linear-gradient(to right, #00f2ff, #bd00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
                 Data Expander
@@ -173,4 +175,5 @@ def show_hero_header():
                 </span>
             </div>
         </div>
-    """, unsafe_allow_html=True)
+    """)
+    st.markdown(html, unsafe_allow_html=True)
