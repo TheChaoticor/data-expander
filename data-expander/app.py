@@ -36,14 +36,22 @@ def show_folder_tree(base):
 
 # ================= MAIN APP =================
 def main():
-    if not login():
-        return
+    # if not login():
+    #     return
+    
+    # --- OPEN ACCESS MODE ---
+    if "username" not in st.session_state:
+        st.session_state.username = "Guest User"
+    if "is_pro" not in st.session_state:
+        st.session_state.is_pro = True
+    st.session_state.authenticated = True
+    # ------------------------
 
     # Sidebar
     st.sidebar.title("Data Expander Pro")
     st.sidebar.caption(f"Logged in as: **{st.session_state.username}**")
     if st.session_state.is_pro:
-        st.sidebar.success("PLAN: PRO (AUDIT-READY)")
+        st.sidebar.success("PLAN: PRO (OPEN ACCESS)")
     else:
         st.sidebar.info("PLAN: FREE (BASIC)")
 
